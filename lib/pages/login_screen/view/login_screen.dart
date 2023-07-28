@@ -5,8 +5,8 @@ import 'package:mribmart/utils/app_sizer.dart';
 import 'package:mribmart/common/widgets/sign_in_registration_button.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../common/provider/root_provider.dart';
 import '../../../common/widgets/square_tile.dart';
-import '../../provider/root_provider.dart';
 
 // class LoginScreen extends StatefulWidget {
 //   const LoginScreen({super.key});
@@ -224,7 +224,7 @@ class LoginScreen extends ConsumerWidget {
               size: 100,
             ),
 
-            gapH32,
+            gapH48,
 
             //welcome text
             Text(
@@ -264,7 +264,16 @@ class LoginScreen extends ConsumerWidget {
             // ),
 
             TextFormField(
-              controller: ref.watch(textControllerProvider('log_in')),
+              controller: ref.watch(
+                textControllerProvider('email'),
+              ),
+            ),
+            gapH16,
+
+            TextFormField(
+              controller: ref.watch(
+                textControllerProvider('log_in'),
+              ),
               obscureText: ref.watch(obscureProvider),
               decoration: InputDecoration(
                 //prefixIcon: leftLogo,
@@ -278,6 +287,11 @@ class LoginScreen extends ConsumerWidget {
                         : const Icon(Icons.visibility_outlined)),
 
                 //hintText: hintText,
+                hintText: 'Enter 8 digit password',
+                label: Text(
+                  'Password',
+                ),
+
                 hintStyle: TextStyle(
                   color: Colors.grey.shade500,
                 ),
@@ -303,19 +317,16 @@ class LoginScreen extends ConsumerWidget {
             ),
 
             // forgot password text
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      color: Colors.grey.shade800,
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                    color: Colors.grey.shade800,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 25,
@@ -416,11 +427,6 @@ class LoginScreen extends ConsumerWidget {
                 ),
               ],
             ),
-
-            Text(
-              'data',
-              style: TextStyle(fontSize: 10.sp),
-            )
           ],
         ),
       ),
