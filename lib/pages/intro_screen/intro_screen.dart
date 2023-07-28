@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:mribmart/pages/login_screen/login_screen.dart';
+import 'package:mribmart/pages/login_screen/view/login_screen.dart';
 // import 'package:flutter_animate/flutter_animate.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
