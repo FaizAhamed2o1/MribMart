@@ -16,7 +16,7 @@ class SigninRegistrationButton extends StatelessWidget {
         minimumSize: const Size(double.infinity, 0),
       ),
       child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 20.0),
+        padding: EdgeInsets.symmetric(vertical: 15.0),
         child: Text(
           'Sign in',
           style: TextStyle(

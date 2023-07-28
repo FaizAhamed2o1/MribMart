@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mribmart/signup_screen/signup_screen.dart';
 import 'package:mribmart/widgets/sign_in_registration_button.dart';
 
 import '../../widgets/login_registration_textfield.dart';
 import '../../widgets/square_tile.dart';
+import '../signup_screen/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -178,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignupScreen(),
+                            builder: (context) => const SignupScreen(),
                           ),
                         );
                       },
