@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mribmart/pages/splash_screen/splash_screen.dart';
+import 'package:mribmart/themes/light/light_theme.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -17,10 +18,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        darkTheme: ThemeData(
-          //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: lightTheme,
         home: const SplashScreen(),
       );
     });
