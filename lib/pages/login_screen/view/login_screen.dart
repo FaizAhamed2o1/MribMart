@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
+import 'package:mribmart/themes/provider/theme_provider.dart';
 import 'package:mribmart/utils/app_sizer.dart';
 import 'package:mribmart/common/widgets/sign_in_registration_button.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../common/widgets/square_tile.dart';
-import '../../provider/root_provider.dart';
+import '../../../common/provider/root_provider.dart';
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
@@ -14,6 +15,16 @@ class LoginScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Switch(
+          value: ref.watch(toggleProvider),
+          onChanged: (value) {
+            ref.read(toggleProvider.notifier).state = !ref.read(toggleProvider);
+            //ref.read(settingProvider.notifier).toggleTheme();
+            ref.read(darkModeProvider.notifier).toggle();
+          },
+        ),
+      ),
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: ListView(
