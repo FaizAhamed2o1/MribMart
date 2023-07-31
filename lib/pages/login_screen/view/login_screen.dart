@@ -21,7 +21,7 @@ class LoginScreen extends ConsumerWidget {
           onChanged: (value) {
             ref.read(toggleProvider.notifier).state = !ref.read(toggleProvider);
             //ref.read(settingProvider.notifier).toggleTheme();
-            ref.read(darkModeProvider.notifier).toggle();
+            ref.read(darkProvider.notifier).toggle();
           },
         ),
       ),
