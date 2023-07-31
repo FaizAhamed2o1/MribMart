@@ -1,14 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:mribmart/pages/intro_screen/intro_screen.dart';
+import 'package:mribmart/pages/bottom_nav/view/bottom_nav.dart';
+import 'package:mribmart/pages/intro_screen/view/intro_screen.dart';
 import 'package:mribmart/pages/login_screen/view/login_screen.dart';
 import 'package:mribmart/pages/splash_screen/splash_screen.dart';
 
-enum AppRoute {
-  home,
-  splash,
-  introScreen,
-  logIn,
-}
+enum AppRoute { home, splash, introScreen, logIn, bottomNav }
 
 final GoRouter router = GoRouter(routes: [
   GoRoute(
@@ -27,4 +23,9 @@ final GoRouter router = GoRouter(routes: [
           builder: (context, state) => const LoginScreen(),
         ),
       ]),
+  GoRoute(
+    path: "/home",
+    name: AppRoute.bottomNav.name,
+    builder: (context, state) => const BottomNav(),
+  ),
 ]);

@@ -5,6 +5,9 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8),
     ),
+    backgroundColor: Colors.black,
+    foregroundColor: Colors.white,
+    minimumSize: const Size(double.infinity, 0),
   ),
 );
 

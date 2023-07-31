@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
+import 'package:mribmart/routing/app_router.dart';
 import 'package:mribmart/themes/provider/theme_provider.dart';
 import 'package:mribmart/utils/app_sizer.dart';
-import 'package:mribmart/common/widgets/sign_in_registration_button.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../common/widgets/square_tile.dart';
@@ -117,9 +118,21 @@ class LoginScreen extends ConsumerWidget {
             ),
 
             // sign in button
-            Container(
-              //margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: const SigninRegistrationButton(),
+            SizedBox(
+              height: 8.h,
+              width: 100.w,
+              child: ElevatedButton(
+                onPressed: () {
+                  GoRouter.of(context).goNamed(AppRoute.bottomNav.name);
+                },
+                child: Text(
+                  'Sign in',
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
             const SizedBox(
               height: 50,
