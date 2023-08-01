@@ -3,9 +3,11 @@ import 'package:sizer/sizer.dart';
 
 class SigninRegistrationButton extends StatelessWidget {
   final VoidCallback validationFuncton;
+  final String text;
   SigninRegistrationButton({
     super.key,
     required this.validationFuncton,
+    required this.text,
   });
 
   @override
@@ -24,7 +26,7 @@ class SigninRegistrationButton extends StatelessWidget {
           minimumSize: const Size(double.infinity, 0),
         ),
         child: Text(
-          'Sign in',
+          text,
           style: TextStyle(
             fontSize: 12.sp,
             fontWeight: FontWeight.bold,
