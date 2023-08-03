@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
+import 'package:mribmart/themes/provider/theme_provider.dart';
+import 'package:sizer/sizer.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends ConsumerWidget {
   const CustomDrawer({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Drawer(
-      width: 50.5,
+      width: 70.w,
       child: ListView(children: <Widget>[
         Container(
           height: MediaQuery.of(context).size.height,
@@ -14,7 +18,6 @@ class CustomDrawer extends StatelessWidget {
           child: Column(
             children: <Widget>[
               ListTile(
-                dense: true,
                 title: const Text(
                   "Home",
                   style: TextStyle(color: Colors.black),
@@ -23,7 +26,6 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {},
               ),
               ListTile(
-                dense: true,
                 title: const Text(
                   "Profile",
                   style: TextStyle(color: Colors.black),
@@ -40,13 +42,44 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {},
               ),
               ListTile(
-                dense: true,
                 title: const Text(
                   "Settings",
                   style: TextStyle(color: Colors.black),
                 ),
                 leading: const Icon(Icons.settings),
                 onTap: () {},
+              ),
+              ExpansionTile(
+                childrenPadding: EdgeInsets.only(left: 5.w),
+                title: const Text(
+                  "Change Theme",
+                  style: TextStyle(color: Colors.black),
+                ),
+                leading: const Icon(Icons.change_circle_outlined),
+                children: [
+                  // light theme
+                  ListTile(
+                    title: const Text(
+                      "Dark Theme",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    leading: const Icon(Icons.dark_mode_outlined),
+                    onTap: () {
+                      ref.read(darkProvider.notifier).toggle();
+                    },
+                  ),
+                  //dark theme
+                  ListTile(
+                    title: const Text(
+                      "Light Theme",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    leading: const Icon(Icons.light_mode_outlined),
+                    onTap: () {
+                      ref.read(darkProvider.notifier).toggle();
+                    },
+                  ),
+                ],
               ),
             ],
           ),
