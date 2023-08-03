@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mribmart/pages/home/view/home.dart';
 import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
 
 import 'package:mribmart/common/widgets/sign_in_registration_button.dart';
@@ -7,6 +9,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../common/provider/root_provider.dart';
 import '../../../common/widgets/square_tile.dart';
+import '../../../routing/app_router.dart';
 import '../../signup_screen/view/signup_screen.dart';
 
 class LoginScreen extends ConsumerWidget {
@@ -74,6 +77,17 @@ class LoginScreen extends ConsumerWidget {
             //   obscureText: isObscure,
             // ),
 
+            //     (value) {
+            //   if (value!.isEmpty) {
+            //     return 'Please enter an Email address';
+            //   } else if (!RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$')
+            //       .hasMatch(value)) {
+            //     return "Enter a valid Email address";
+            //   } else {
+            //     return null;
+            //   }
+            // }
+
             Form(
               key: loginFormKey,
               child: Column(
@@ -91,15 +105,17 @@ class LoginScreen extends ConsumerWidget {
                       }
                     },
                     controller: ref.watch(
-                      textControllerProvider('email'),
+                      textControllerProvider('log_in_email'),
                     ),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.mail_outlined,
                         color: Colors.grey.shade700,
                       ),
+
+                      //hintText: hintText,
                       hintText: 'xyz@gmail.com',
-                      labelText: 'E-mail',
+                      labelText: 'Email',
                       floatingLabelStyle: TextStyle(
                         color: Colors.grey.shade700,
                         fontSize: 2.h,
@@ -108,6 +124,20 @@ class LoginScreen extends ConsumerWidget {
                       hintStyle: TextStyle(
                         color: Colors.grey.shade500,
                       ),
+
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey.shade400,
+                          width: 1.5,
+                        ),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey.shade200,
                     ),
                   ),
                   SizedBox(
@@ -126,7 +156,7 @@ class LoginScreen extends ConsumerWidget {
                       }
                     },
                     controller: ref.watch(
-                      textControllerProvider('log_in'),
+                      textControllerProvider('log_in_password'),
                     ),
                     obscureText: ref.watch(obscureProvider),
                     decoration: InputDecoration(
@@ -202,14 +232,10 @@ class LoginScreen extends ConsumerWidget {
                   SigninRegistrationButton(
                     validationFuncton: () {
                       if (loginFormKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Processing'),
-                          ),
-                        );
+                        GoRouter.of(context).goNamed(AppRoute.bottomNav.name);
                       }
                     },
-                    text: 'Sign in',
+                    text: 'Log in',
                   ),
                 ],
               ),
@@ -280,7 +306,7 @@ class LoginScreen extends ConsumerWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const SignupScreen(),

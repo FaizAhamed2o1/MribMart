@@ -61,7 +61,7 @@ class SignupScreen extends ConsumerWidget {
                       }
                     },
                     controller: ref.watch(
-                      textControllerProvider('log_in'),
+                      textControllerProvider('signup_userName'),
                     ),
                     obscureText: ref.watch(obscureProviderSignup),
                     decoration: InputDecoration(
@@ -113,15 +113,17 @@ class SignupScreen extends ConsumerWidget {
                       }
                     },
                     controller: ref.watch(
-                      textControllerProvider('email'),
+                      textControllerProvider('log_in'),
                     ),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.mail_outlined,
                         color: Colors.grey.shade700,
                       ),
+
+                      //hintText: hintText,
                       hintText: 'xyz@gmail.com',
-                      labelText: 'E-mail',
+                      labelText: 'Email',
                       floatingLabelStyle: TextStyle(
                         color: Colors.grey.shade700,
                         fontSize: 2.h,
@@ -130,6 +132,20 @@ class SignupScreen extends ConsumerWidget {
                       hintStyle: TextStyle(
                         color: Colors.grey.shade500,
                       ),
+
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey.shade400,
+                          width: 1.5,
+                        ),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey.shade200,
                     ),
                   ),
                   SizedBox(
