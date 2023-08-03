@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mribmart/pages/home/components/carousel_slider_component.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,7 +12,7 @@ class Home extends StatelessWidget {
         title: const Text('Home'),
       ),
       body: const Center(
-        child: Text('this is home'),
+        child: CarouselSliderComponent(),
       ),
     );
   }
