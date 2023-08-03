@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class SigninRegistrationButton extends StatelessWidget {
-  const SigninRegistrationButton({super.key});
+  final VoidCallback validationFuncton;
+  final String text;
+  SigninRegistrationButton({
+    super.key,
+    required this.validationFuncton,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +16,7 @@ class SigninRegistrationButton extends StatelessWidget {
       height: 8.h,
       width: 100.w,
       child: TextButton(
-        onPressed: () {},
+        onPressed: validationFuncton,
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -20,7 +26,7 @@ class SigninRegistrationButton extends StatelessWidget {
           minimumSize: const Size(double.infinity, 0),
         ),
         child: Text(
-          'Sign in',
+          text,
           style: TextStyle(
             fontSize: 12.sp,
             fontWeight: FontWeight.bold,

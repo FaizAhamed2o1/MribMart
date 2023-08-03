@@ -11,6 +11,12 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
   ),
 );
 
+ThemeData get lightTheme => ThemeData(
+      primarySwatch: Colors.blue,
+      //useMaterial3: true,
+      elevatedButtonTheme: elevatedButtonTheme,
+      inputDecorationTheme: textFieldTheme,
+    );
 final textFieldTheme = InputDecorationTheme(
   hintStyle: TextStyle(
     color: Colors.grey.shade500,
