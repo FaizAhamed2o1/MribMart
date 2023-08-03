@@ -1,0 +1,37 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:mribmart/pages/orders/view/orders.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+import '../../categories/view/categories.dart';
+import '../../home/view/home.dart';
+
+List<Widget> buildScreens() {
+  return [const Home(), const Categories(), const Orders()];
+}
+
+List<PersistentBottomNavBarItem> navBarsItems(context) {
+  return [
+    PersistentBottomNavBarItem(
+      icon: const Icon(CupertinoIcons.home),
+      title: ("Home"),
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(
+        CupertinoIcons.settings,
+        color: Colors.white,
+      ),
+      title: ("categories"),
+      activeColorPrimary: Colors.blue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(CupertinoIcons.cart),
+      title: ("orders"),
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+  ];
+}

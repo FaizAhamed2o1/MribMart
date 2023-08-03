@@ -2,7 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:mribmart/pages/login_screen/view/login_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mribmart/routing/app_router.dart';
 // import 'package:flutter_animate/flutter_animate.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
@@ -77,12 +78,14 @@ class _IntroScreenState extends State<IntroScreen> {
                   // let's go button
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ),
-                      );
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const LoginScreen(),
+                      //   ),
+                      // );
+
+                      GoRouter.of(context).pushNamed(AppRoute.logIn.name);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
