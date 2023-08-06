@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 ThemeData light({Color color = const Color(0xFFFF9000)}) => ThemeData(
+      useMaterial3: true,
       //fontFamily: 'Poppins',
       primaryColor: color,
       secondaryHeaderColor: const Color(0xFF2E2E2E),

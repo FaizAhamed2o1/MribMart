@@ -22,3 +22,7 @@ import 'package:mribmart/pages/home/models/carousel_slider_model.dart';
 final carouselDataProvider = FutureProvider<CarouselSliderModel>((ref) async {
   return ref.watch(carouselProvider).getCarouselData();
 });
+
+final animatedIndicatorProvider = StateProvider<int>((ref) {
+  return 1;
+});

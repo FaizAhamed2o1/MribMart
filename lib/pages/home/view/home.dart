@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mribmart/pages/home/components/carousel_slider_component.dart';
+import 'package:mribmart/utils/app_sizer.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,8 +11,12 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: const Center(
-        child: CarouselSliderComponent(),
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+        children: [
+          gapH8,
+          CarouselSliderComponent(),
+        ],
       ),
     );
   }
