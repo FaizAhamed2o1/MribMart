@@ -7,18 +7,14 @@ class CarouselSliderComponent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //AsyncValue<CarouselSliderModel> config = ref.watch(dataProvider);
-    //final dataAsyncValue = watch(dataProvider);
-    final poemRef = ref.watch(carouselDataProvider);
+    final dataRef = ref.watch(carouselDataProvider);
     return Container(
-      child: poemRef.when(
+      child: dataRef.when(
         data: (data) {
-          Text(data.toString());
-          return null;
+          return Image.network(data.data![0].imagePath.toString());
         },
         error: (error, stackTrace) {
-          Text(error.toString());
-          return null;
+          return Text(error.toString());
         },
         loading: () => const CircularProgressIndicator(),
       ),

@@ -15,7 +15,7 @@ List<PersistentBottomNavBarItem> navBarsItems(context) {
     PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.home),
       title: ("Home"),
-      activeColorPrimary: CupertinoColors.activeBlue,
+      activeColorPrimary: Theme.of(context).primaryColor,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
