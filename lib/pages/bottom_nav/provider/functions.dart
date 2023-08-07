@@ -7,23 +7,23 @@ import '../../categories/view/categories.dart';
 import '../../home/view/home.dart';
 
 List<Widget> buildScreens() {
-  return [const Home(), const Categories(), const CustomDrawer()];
+  return [const Categories(), const Home(), const CustomDrawer()];
 }
 
 List<PersistentBottomNavBarItem> navBarsItems(context) {
   return [
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.home),
-      title: ("Home"),
-      activeColorPrimary: Theme.of(context).primaryColor,
+      icon: const Icon(CupertinoIcons.settings),
+      title: ("Categories"),
+      activeColorPrimary: CupertinoColors.activeBlue,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(
-        CupertinoIcons.settings,
+        CupertinoIcons.home,
         color: Colors.white,
       ),
-      title: ("categories"),
+      title: ("Home"),
       activeColorPrimary: Colors.blue,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),

@@ -10,7 +10,7 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     PersistentTabController controller;
 
-    controller = PersistentTabController(initialIndex: 0);
+    controller = PersistentTabController(initialIndex: 1);
 
     return PersistentTabView(
       context,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mribmart/pages/login_screen/view/login_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mribmart/pages/signup_screen/provider/signup_screen_provider.dart';
 import 'package:mribmart/common/provider/root_provider.dart';
 import '../../../common/widgets/sign_in_registration_button.dart';
+import '../../../routing/app_router.dart';
 
 class SignupScreen extends ConsumerWidget {
   const SignupScreen({super.key});
@@ -18,7 +20,9 @@ class SignupScreen extends ConsumerWidget {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 1.5.h),
           children: [
-            SizedBox(height: 2.5.h),
+            SizedBox(
+              height: 2.5.h,
+            ),
             // register text
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +67,6 @@ class SignupScreen extends ConsumerWidget {
                     controller: ref.watch(
                       textControllerProvider('signup_userName'),
                     ),
-                    obscureText: ref.watch(obscureProviderSignup),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.person_2_outlined,
@@ -113,7 +116,7 @@ class SignupScreen extends ConsumerWidget {
                       }
                     },
                     controller: ref.watch(
-                      textControllerProvider('log_in'),
+                      textControllerProvider('signup_email'),
                     ),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -164,7 +167,7 @@ class SignupScreen extends ConsumerWidget {
                       }
                     },
                     controller: ref.watch(
-                      textControllerProvider('log_in'),
+                      textControllerProvider('signup_password'),
                     ),
                     obscureText: ref.watch(obscureProviderSignup),
                     decoration: InputDecoration(
@@ -210,28 +213,8 @@ class SignupScreen extends ConsumerWidget {
                     ),
                   ),
 
-                  SizedBox(
-                    height: 1.5.h,
-                  ),
-
                   // forgot password text
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Ink(
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+
                   SizedBox(
                     height: 5.h,
                   ),
@@ -240,11 +223,8 @@ class SignupScreen extends ConsumerWidget {
                   SigninRegistrationButton(
                     validationFuncton: () {
                       if (signupFormkey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Processing'),
-                          ),
-                        );
+                        GoRouter.of(context)
+                            .pushNamed(AppRoute.emailVerificationPage.name);
                       }
                     },
                     text: 'Sign up',
