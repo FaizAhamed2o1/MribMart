@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
 import 'package:mribmart/themes/provider/theme_provider.dart';
 import 'package:sizer/sizer.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mribmart/pages/home/view/home.dart';
+
 import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
 
 import 'package:mribmart/common/widgets/sign_in_registration_button.dart';
