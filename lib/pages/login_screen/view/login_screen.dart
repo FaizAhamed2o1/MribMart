@@ -231,9 +231,11 @@ class LoginScreen extends ConsumerWidget {
                   // sign in button
                   SigninRegistrationButton(
                     validationFuncton: () {
-                      if (loginFormKey.currentState!.validate()) {
-                        GoRouter.of(context).goNamed(AppRoute.bottomNav.name);
-                      }
+                      // if (loginFormKey.currentState!.validate()) {
+                      //   GoRouter.of(context).goNamed(AppRoute.bottomNav.name);
+                      // }
+
+                      GoRouter.of(context).goNamed(AppRoute.bottomNav.name);
                     },
                     text: 'Log in',
                   ),
