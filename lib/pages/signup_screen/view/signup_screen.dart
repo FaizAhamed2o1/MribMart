@@ -221,8 +221,11 @@ class SignupScreen extends ConsumerWidget {
 
                   // sign in button
                   SigninRegistrationButton(
-                    validationFuncton: () {
+                    validationFuncton: () async{
                       if (signupFormkey.currentState!.validate()) {
+
+                        
+
                         GoRouter.of(context)
                             .pushNamed(AppRoute.emailVerificationPage.name);
                       }

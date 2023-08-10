@@ -54,7 +54,10 @@ class CustomDrawer extends ConsumerWidget {
                   "Change Theme",
                   style: TextStyle(color: Colors.black),
                 ),
-                leading: const Icon(Icons.change_circle_outlined),
+                leading: const Icon(
+                  Icons.change_circle_outlined,
+                  color: Colors.amber,
+                ),
                 children: [
                   // light theme
                   ListTile(

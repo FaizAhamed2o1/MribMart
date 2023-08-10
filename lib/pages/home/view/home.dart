@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mribmart/pages/home/components/categories_card.dart';
+import 'package:mribmart/pages/home/components/carousel_slider_component.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../drawer/view/custom_drawer.dart';
@@ -19,6 +21,7 @@ class Home extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CarouselSliderComponent(),
               SizedBox(
                 height: 2.5.h,
               ),
@@ -54,6 +57,8 @@ class Home extends StatelessWidget {
                 height: 2.h,
               ),
               // card container
+
+              CategoriesCard()
             ],
           ),
         ),

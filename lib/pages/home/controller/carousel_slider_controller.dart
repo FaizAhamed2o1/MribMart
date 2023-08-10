@@ -16,7 +16,6 @@ class ApiServiceCarousel {
     if (response.statusCode == 200) {
       var body = response.body;
       debugPrint(body);
-      //return PoemClass.fromJson(jsonDecode(response.body));
 
       return CarouselSliderModel.fromJson(jsonDecode(body));
     } else {

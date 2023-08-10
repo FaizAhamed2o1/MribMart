@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mribmart/pages/home/controller/carousel_slider_model.dart';
+import 'package:mribmart/pages/home/controller/carousel_slider_controller.dart';
 import 'package:mribmart/pages/home/models/carousel_slider_model.dart';
 
 // final configCarouselProvider = FutureProvider<CarouselSliderModel>((ref) async {
