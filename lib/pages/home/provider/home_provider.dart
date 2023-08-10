@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mribmart/pages/home/controller/carousel_slider_controller.dart';
 import 'package:mribmart/pages/home/models/carousel_slider_model.dart';
+import 'package:mribmart/pages/home/models/catetories_model.dart';
+
+import '../controller/caterories_controller.dart';
 
 // final configCarouselProvider = FutureProvider<CarouselSliderModel>((ref) async {
 //   final content = json.decode(
@@ -25,4 +28,8 @@ final carouselDataProvider = FutureProvider<CarouselSliderModel>((ref) async {
 
 final animatedIndicatorProvider = StateProvider<int>((ref) {
   return 1;
+});
+
+final categoriesDataProvider = FutureProvider<CategoriesModel>((ref) async {
+  return ref.watch(categoriesProvider).getCarouselData();
 });
