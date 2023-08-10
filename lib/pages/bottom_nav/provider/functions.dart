@@ -15,7 +15,7 @@ List<PersistentBottomNavBarItem> navBarsItems(context) {
     PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.settings),
       title: ("Categories"),
-      activeColorPrimary: CupertinoColors.activeBlue,
+      activeColorPrimary: Theme.of(context).primaryColor,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
@@ -24,13 +24,13 @@ List<PersistentBottomNavBarItem> navBarsItems(context) {
         color: Colors.white,
       ),
       title: ("Home"),
-      activeColorPrimary: Colors.blue,
+      activeColorPrimary: Theme.of(context).primaryColor,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.add),
       title: ("Drawer"),
-      activeColorPrimary: CupertinoColors.activeBlue,
+      activeColorPrimary: Theme.of(context).primaryColor,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
   ];

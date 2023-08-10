@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mribmart/pages/home/components/animation_indicator.dart';
 import 'package:mribmart/pages/home/provider/home_provider.dart';
+import 'package:sizer/sizer.dart';
 
 class CarouselSliderComponent extends ConsumerWidget {
   const CarouselSliderComponent({super.key});
@@ -34,7 +35,7 @@ class CarouselSliderComponent extends ConsumerWidget {
                   );
                 },
                 options: CarouselOptions(
-                  height: 200.0,
+                  height: 20.0.h,
                   enlargeCenterPage: true,
                   autoPlay: true,
                   enableInfiniteScroll: true,
