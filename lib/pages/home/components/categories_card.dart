@@ -40,7 +40,7 @@ class CategoriesCard extends ConsumerWidget {
                           height: 2.h,
                         ),
                         Text(
-                          'Shopping',
+                          data.data![index].categoryTitle.toString(),
                           style: TextStyle(fontSize: 12.sp),
                         ),
                       ],
