@@ -4,6 +4,7 @@ ThemeData light({Color color = const Color(0xFFFF9000)}) => ThemeData(
       useMaterial3: true,
       //fontFamily: 'Poppins',
       primaryColor: color,
+
       secondaryHeaderColor: const Color(0xFF2E2E2E),
       disabledColor: const Color(0xFFBABFC4),
       //colorSchemeSeed: const Color(0xFFE84D4F),
