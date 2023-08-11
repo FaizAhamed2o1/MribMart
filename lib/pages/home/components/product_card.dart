@@ -20,7 +20,7 @@ class _ProductCardState extends State<ProductCard> {
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 2 / 3.8,
+          childAspectRatio: 2 / 3.5,
           crossAxisSpacing: 4.0,
           mainAxisSpacing: 8.0,
         ),
@@ -47,7 +47,7 @@ class _ProductCardState extends State<ProductCard> {
                   Text(
                     '99.99\$',
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 12.sp,
                     ),
                   ),
 
@@ -56,7 +56,9 @@ class _ProductCardState extends State<ProductCard> {
                   // product name
                   Text(
                     'Headphone H50S',
-                    style: TextStyle(fontSize: 16.sp),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 14.sp),
                   ),
 
                   gapH4,
