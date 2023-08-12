@@ -104,17 +104,29 @@ class ProductDetails extends ConsumerWidget {
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(50),
                                 ),
-                                // child: ref.watch(iconProvider),
+                                child: ref.watch(iconProvider1),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                ref.read(iconProvider1.notifier).state =
+                                    Icon(Icons.check);
+                                ref.read(iconProvider2.notifier).state = null;
+                              },
                             ),
                             gapW8,
-                            Container(
-                              height: 10.w,
-                              width: 10.w,
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(50),
+                            InkWell(
+                              onTap: () {
+                                ref.read(iconProvider2.notifier).state =
+                                    Icon(Icons.check);
+                                ref.read(iconProvider1.notifier).state = null;
+                              },
+                              child: Container(
+                                height: 10.w,
+                                width: 10.w,
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: ref.watch(iconProvider2),
                               ),
                             ),
                             gapW8,
