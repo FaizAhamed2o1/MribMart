@@ -8,3 +8,7 @@ final iconProvider1 = StateProvider<Icon?>((ref) {
 final iconProvider2 = StateProvider<Icon?>((ref) {
   return null;
 });
+
+final amountProvider = StateProvider<int>((ref) {
+  return 1;
+});

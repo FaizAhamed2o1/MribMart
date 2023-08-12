@@ -153,6 +153,32 @@ class ProductDetails extends ConsumerWidget {
                     ),
                   ],
                 ),
+
+                // number of products
+                Row(
+                  children: [
+                    Text('Amount: '),
+                    IconButton(
+                      onPressed: () {
+                        final minusCount =
+                            ref.read(amountProvider.notifier).state;
+                        minusCount > 1
+                            ? ref.read(amountProvider.notifier).state--
+                            : ref.read(amountProvider.notifier).state;
+                      },
+                      icon: Icon(Icons.remove),
+                    ),
+                    Text(
+                      ref.watch(amountProvider).toString(),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        ref.read(amountProvider.notifier).state++;
+                      },
+                      icon: Icon(Icons.add),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
