@@ -4,7 +4,6 @@ ThemeData light({Color color = const Color(0xFFFF9000)}) => ThemeData(
       useMaterial3: true,
       //fontFamily: 'Poppins',
       primaryColor: color,
-
       secondaryHeaderColor: const Color(0xFF2E2E2E),
       disabledColor: const Color(0xFFBABFC4),
       //colorSchemeSeed: const Color(0xFFE84D4F),
@@ -16,9 +15,10 @@ ThemeData light({Color color = const Color(0xFFFF9000)}) => ThemeData(
           style: TextButton.styleFrom(foregroundColor: color)),
       colorScheme: ColorScheme.light(primary: color, secondary: color)
           .copyWith(background: const Color(0xFFFFF3E0)),
-
       elevatedButtonTheme: elevatedButtonTheme,
       inputDecorationTheme: textFieldTheme,
+      appBarTheme: appbarColor,
+      // popupMenuTheme: popupMenuTheme,
     );
 
 final elevatedButtonTheme = ElevatedButtonThemeData(
@@ -31,6 +31,14 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
     minimumSize: const Size(double.infinity, 0),
   ),
 );
+
+final appbarColor = AppBarTheme(
+  backgroundColor: Colors.white,
+);
+
+// final popupMenuTheme = PopupMenuButtonState(
+//   color: Colors.white,
+// );
 
 // ThemeData get lightTheme => ThemeData(
 //       primarySwatch: Colors.blue,
