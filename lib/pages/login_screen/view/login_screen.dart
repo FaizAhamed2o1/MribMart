@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:mribmart/pages/login_screen/provider/login_screen_provider.dart';
 
@@ -8,6 +9,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../common/provider/root_provider.dart';
 import '../../../common/widgets/square_tile.dart';
+import '../../../routing/app_router.dart';
 import '../../signup_screen/view/signup_screen.dart';
 
 class LoginScreen extends ConsumerWidget {
@@ -232,23 +234,25 @@ class LoginScreen extends ConsumerWidget {
                     validationFuncton: () async {
                       // final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-                      if (loginFormKey.currentState!.validate()) {
-                        ref.read(loginLoadingProvider.notifier).state = true;
+                      // if (loginFormKey.currentState!.validate()) {
+                      //   ref.read(loginLoadingProvider.notifier).state = true;
 
-                        await ref.read(logindataProvider.notifier).login(
-                            name: ref
-                                .watch(textControllerProvider('log_in_email'))
-                                .text,
-                            password: ref
-                                .watch(
-                                    textControllerProvider('log_in_password'))
-                                .text,
-                            context: context);
+                      //   await ref.read(logindataProvider.notifier).login(
+                      //       name: ref
+                      //           .watch(textControllerProvider('log_in_email'))
+                      //           .text,
+                      //       password: ref
+                      //           .watch(
+                      //               textControllerProvider('log_in_password'))
+                      //           .text,
+                      //       context: context);
 
-                        Future.delayed(Duration(seconds: 2));
+                      //   Future.delayed(Duration(seconds: 2));
 
-                        ref.read(loginLoadingProvider.notifier).state = false;
-                      }
+                      //   ref.read(loginLoadingProvider.notifier).state = false;
+                      // }
+
+                      GoRouter.of(context).goNamed(AppRoute.bottomNav.name);
                     },
                     text: 'Log in',
                   ),
