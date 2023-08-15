@@ -4,185 +4,62 @@ import 'package:mribmart/pages/product_details/provider/product_details_provider
 import 'package:mribmart/utils/app_sizer.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../themes/provider/theme_provider.dart';
+
 class ProductDetails extends ConsumerWidget {
   const ProductDetails({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade300,
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.favorite_outline),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.shopping_basket_outlined),
-          ),
-        ],
-        title: Text('Product Details'),
-      ),
-      body: ListView(
-        children: [
-          Text('data'),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 1.5.h, vertical: 1.5.h),
-            width: 100.w,
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColorLight,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(35),
-                topRight: Radius.circular(35),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: Color(0xFFF8F8F8),
+        appBar: AppBar(
+          actions: [
+            Theme(
+              data: ThemeData(
+                popupMenuTheme: PopupMenuThemeData(color: Colors.white),
+              ),
+              child: PopupMenuButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Colors.black,
+                ),
+                elevation: 2,
+                offset: Offset(0, 50),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 1,
+                    child: Text('Change Theme'),
+                  ),
+                  PopupMenuItem(
+                    value: 2,
+                    child: Text('Change Theme'),
+                  ),
+                ],
               ),
             ),
-            child: Column(
-              children: [
-                gapH16,
-                Row(
-                  children: [
-                    Text(
-                      '1500',
-                      style: TextStyle(
-                        fontSize: 10.sp,
-                        decoration: TextDecoration.lineThrough,
-                        decorationThickness: 2,
-                        decorationColor: Colors.red,
-                        color: Colors.red,
-                      ),
-                    ),
-                    gapW4,
-                    Text(
-                      '1400',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                      ),
-                    )
-                  ],
+          ],
+        ),
+        body: ListView(
+          children: [
+            // top carousel section
+            Container(
+              height: 40.h,
+              width: 100.w,
+              color: Color(0xFFECECEC),
+              child: SizedBox(
+                height: 100.h,
+                width: 40.w,
+                child: Image.asset(
+                  'assets/images/intro_image_bg.jpg',
+                  fit: BoxFit.cover,
                 ),
-
-                // product title container
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 90.w,
-                      child: Text(
-                        'Product Title',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                // product Colors
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Colors: ',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            InkWell(
-                              child: Container(
-                                height: 10.w,
-                                width: 10.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                child: ref.watch(iconProvider1),
-                              ),
-                              onTap: () {
-                                ref.read(iconProvider1.notifier).state =
-                                    Icon(Icons.check);
-                                ref.read(iconProvider2.notifier).state = null;
-                              },
-                            ),
-                            gapW8,
-                            InkWell(
-                              onTap: () {
-                                ref.read(iconProvider2.notifier).state =
-                                    Icon(Icons.check);
-                                ref.read(iconProvider1.notifier).state = null;
-                              },
-                              child: Container(
-                                height: 10.w,
-                                width: 10.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                child: ref.watch(iconProvider2),
-                              ),
-                            ),
-                            gapW8,
-                            Container(
-                              height: 10.w,
-                              width: 10.w,
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                            ),
-                            gapW8,
-                            Container(
-                              height: 10.w,
-                              width: 10.w,
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-
-                // number of products
-                Row(
-                  children: [
-                    Text('Amount: '),
-                    IconButton(
-                      onPressed: () {
-                        final minusCount =
-                            ref.read(amountProvider.notifier).state;
-                        minusCount > 1
-                            ? ref.read(amountProvider.notifier).state--
-                            : ref.read(amountProvider.notifier).state;
-                      },
-                      icon: Icon(Icons.remove),
-                    ),
-                    Text(
-                      ref.watch(amountProvider).toString(),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        ref.read(amountProvider.notifier).state++;
-                      },
-                      icon: Icon(Icons.add),
-                    ),
-                  ],
-                )
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
