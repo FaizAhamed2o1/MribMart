@@ -7,13 +7,14 @@ import 'package:http/http.dart' as http;
 import 'package:mribmart/utils/app_url.dart';
 
 class ApiServiceSignUp {
-  Future<SignUpModel> getSignUpData(String name , String mail , String password) async {
+  Future<SignUpModel> getSignUpData(
+      {required name, required mail, required password}) async {
     http.Response response;
 
     response = await http.post(Uri.parse(signupApi), body: <String, String>{
-    "name": name,
-    "email": mail,
-    "password": password
+      "name": name,
+      "email": mail,
+      "password": password
     });
 
     if (response.statusCode == 200) {
@@ -28,6 +29,4 @@ class ApiServiceSignUp {
   }
 }
 
-final signUpProvider =
-    Provider<ApiServiceSignUp>((ref) => ApiServiceSignUp());
-
+final signUpProvider = Provider<ApiServiceSignUp>((ref) => ApiServiceSignUp());

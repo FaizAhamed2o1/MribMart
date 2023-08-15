@@ -12,8 +12,14 @@ class Cart extends StatelessWidget {
         title: Text('Cart'),
       ),
       body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         children: [
-          Text('Item List'),
+          gapH12,
+          Row(
+            children: [
+              Text('1 selected item in your bag'),
+            ],
+          ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             height: 20.h,
@@ -21,11 +27,6 @@ class Cart extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.red),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Text('1 selected item in your bag'),
-                  ],
-                ),
                 gapH4,
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,10 +36,29 @@ class Cart extends StatelessWidget {
                       width: 10.h,
                       child: Image.asset('assets/images/email.png'),
                     ),
-                    Text(
-                      'Jet set Eyes Kajal',
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    )
+                    gapW8,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Jet set Eyes Kajal',
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                        Text('price - 120'),
+                        Text('quantity 1'),
+                        gapH4,
+                        SizedBox(
+                          height: 40,
+                          width: 100,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Remove'),
+                          ),
+                        ),
+                        //Text('data')
+                      ],
+                    ),
                   ],
                 )
               ],

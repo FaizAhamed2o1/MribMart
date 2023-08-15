@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mribmart/pages/login_screen/view/login_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mribmart/pages/signup_screen/provider/signup_screen_provider.dart';
 import 'package:mribmart/common/provider/root_provider.dart';
 import '../../../common/widgets/sign_in_registration_button.dart';
-import '../../../routing/app_router.dart';
 
 class SignupScreen extends ConsumerWidget {
   const SignupScreen({super.key});
@@ -221,13 +219,26 @@ class SignupScreen extends ConsumerWidget {
 
                   // sign in button
                   SigninRegistrationButton(
-                    validationFuncton: () async{
+                    flag: false,
+                    validationFuncton: () async {
                       if (signupFormkey.currentState!.validate()) {
+                        ref.read(signupDataProvider.notifier).signUp(
+                              context: context,
+                              username: ref
+                                  .read(
+                                      textControllerProvider('signup_userName'))
+                                  .text,
+                              email: ref
+                                  .read(textControllerProvider('signup_email'))
+                                  .text,
+                              password: ref
+                                  .read(
+                                      textControllerProvider('signup_password'))
+                                  .text,
+                            );
 
-                        
-
-                        GoRouter.of(context)
-                            .pushNamed(AppRoute.emailVerificationPage.name);
+                        // GoRouter.of(context)
+                        //     .pushNamed(AppRoute.emailVerificationPage.name);
                       }
                     },
                     text: 'Sign up',

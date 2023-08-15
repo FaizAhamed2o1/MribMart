@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../common/provider/root_provider.dart';
-import '../../../common/widgets/sign_in_registration_button.dart';
-import '../../../routing/app_router.dart';
 
 class EmailVerificationPage extends ConsumerWidget {
   const EmailVerificationPage({super.key});
@@ -104,15 +101,15 @@ class EmailVerificationPage extends ConsumerWidget {
                   ),
 
                   // sign in button
-                  SigninRegistrationButton(
-                    validationFuncton: () {
-                      if (emailVerificationFormkey.currentState!.validate()) {
-                        GoRouter.of(context)
-                            .pushReplacementNamed(AppRoute.bottomNav.name);
-                      }
-                    },
-                    text: 'Verify',
-                  ),
+                  // SigninRegistrationButton(
+                  //   validationFuncton: () {
+                  //     if (emailVerificationFormkey.currentState!.validate()) {
+                  //       GoRouter.of(context)
+                  //           .pushReplacementNamed(AppRoute.bottomNav.name);
+                  //     }
+                  //   },
+                  //   text: 'Verify',
+                  // ),
                 ],
               ),
             ),

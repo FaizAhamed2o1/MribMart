@@ -9,6 +9,8 @@ class ProductDetails extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final test1 = ref.read(iconFamilyProvider('one'));
+    final test2 = ref.read(iconFamilyProvider('two'));
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
@@ -104,20 +106,29 @@ class ProductDetails extends ConsumerWidget {
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(50),
                                 ),
-                                child: ref.watch(iconProvider1),
+                                child: test1,
                               ),
                               onTap: () {
-                                ref.read(iconProvider1.notifier).state =
-                                    Icon(Icons.check);
-                                ref.read(iconProvider2.notifier).state = null;
+                                ref
+                                    .read(iconFamilyProvider('one').notifier)
+                                    .state = Icon(Icons.check);
+                                ref
+                                    .read(iconFamilyProvider('two').notifier)
+                                    .state = null;
                               },
                             ),
                             gapW8,
                             InkWell(
                               onTap: () {
-                                ref.read(iconProvider2.notifier).state =
-                                    Icon(Icons.check);
-                                ref.read(iconProvider1.notifier).state = null;
+                                ref
+                                    .read(iconFamilyProvider('one').notifier)
+                                    .state = null;
+                                ref
+                                    .read(iconFamilyProvider('two').notifier)
+                                    .state = Icon(Icons.check);
+
+                                ;
+                                //ref.read(iconFamilyProvider('one').notifier).state = null;
                               },
                               child: Container(
                                 height: 10.w,
@@ -126,7 +137,7 @@ class ProductDetails extends ConsumerWidget {
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(50),
                                 ),
-                                child: ref.watch(iconProvider2),
+                                child: test2,
                               ),
                             ),
                             gapW8,
